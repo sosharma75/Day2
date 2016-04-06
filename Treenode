@@ -1,0 +1,44 @@
+mport java.util.*;
+
+
+/ * Definition for binary tree
+ * class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+ 
+ class TreeNode {
+     int val;
+      TreeNode left;
+      TreeNode right;
+      TreeNode(int x) { val = x; }
+  }
+public class TraverseTreeNode {
+	public List<Integer> preorderTraversal(TreeNode a) {
+	    List<Integer> result = new ArrayList<Integer>();
+	    Stack <TreeNode> stack = new Stack<TreeNode>();
+	    TreeNode node;
+	    if (a != null)
+	        stack.push(a);
+	    else
+	        return result;   
+	    while(! stack.isEmpty()){
+	        node = stack.pop();
+	        result.add(node.val);
+	        if (node.left != null){
+	            node = node.left;
+	            result.add(node.val);
+	        }
+	        if (node.right != null){
+	            node = node.right;
+	            result.add(node.val);
+	        }
+	    }
+	        return result;
+	        
+	    }
+	}
+
