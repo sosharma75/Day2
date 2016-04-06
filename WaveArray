@@ -1,0 +1,42 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class WaveArray
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		List<Integer> a = new ArrayList<Integer>();
+		a.add(1);
+		a.add(2);
+		a.add(3);
+		a.add(4);
+		a.add(5);
+		List<Integer> b = wave(a);
+		for (Integer i : b){
+		    System.out.println( i );
+		}
+		
+		    // your code goes here
+	}
+	
+	static List<Integer> wave(List<Integer> a) {
+	    //ArrayList<Integer> result = new ArrayList<Integer> ();
+	    int N = a.size();
+	    for (int i = 0; i < N-1; i +=2){
+	        System.out.println("i " + i );
+	        exch(a,i,i+1);
+	    }
+	    return a;
+	}
+	static void exch(List<Integer> a, int i, int j){
+	    int temp = a.get(j);
+	    
+	    a.set(j, a.get(i));
+	    a.set(i,temp);
+	}
+	
+}
