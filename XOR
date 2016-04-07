@@ -1,0 +1,45 @@
+import java.util.*;
+class XOR{
+     public static void main(String []args){
+        //List<Integer> a = getlist(1,4);
+        List<Integer> a = new ArrayList<Integer>();
+        a.add(1);
+        a.add(2);
+        a.add(2);
+        a.add(5);
+        a.add(3);
+        a.add(1);
+        a.add(3);
+        for(Integer i :a){
+             System.out.println(i +" ," );
+        }
+        System.out.println( " single " + singleNumber(a));
+         
+     }
+     static List<Integer> getlist(int start, int end){
+         List<Integer> a = new ArrayList<Integer>();
+         int j = 0;
+         for(int i= 0 ; i < end+1; i++){
+             a.add(i);
+            
+         }
+         for(int i= 0 ; i < end+1; i++){
+             a.add(i);
+            
+         }
+         a.set(5,8);
+         return a;
+     }
+     static int singleNumber(final List<Integer> a) {
+	    
+	    int num = 0;
+	    
+	    for (int val : a) {
+	        System.out.println( "debug num " + num + " val " + val + " num ^ val " + (num ^ val) );
+	        num ^= val;
+	    }
+	    
+	    return num;
+	    
+	}
+}
