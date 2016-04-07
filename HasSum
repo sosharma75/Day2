@@ -1,0 +1,26 @@
+public class HelloWorld{
+
+     public static void main(String []args){
+         TreeNode tn = new TreeNode(1);
+         tn.left = new TreeNode(2);
+         tn.right = new TreeNode(3);
+         tn.left.left = new TreeNode(4);
+         boolean ret = hasSum(tn,0,4);
+        System.out.println("Hello  "+ret);
+     }
+     
+     static boolean hasSum(TreeNode a, int currSum, int reqSum){
+         if(a==null)
+            return false;
+          if( (a.left ==null)&&(a.right ==null) )
+            return false;
+          if(currSum==reqSum)
+            return true;
+          currSum = currSum+ a.val;
+          if ( hasSum(a.left,currSum,reqSum) || hasSum(a.right,currSum,reqSum) )
+            return true;
+          return false;
+          
+     }
+     
+}
