@@ -1,0 +1,51 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* find factors */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		List<String> a = new ArrayList<String>();
+		a.add("abcdf");
+		a.add("abghj");
+		a.add("abghth");
+		System.out.println(" prefix " + longestCommonPrefix(a));
+	}
+	static int trailingZeroes(int a) {
+	    int zeros = 0;
+	    long n = 5;
+	    while(n <= 1L * a){
+	        zeros += ((int) (1L*a)/n);
+	        n *=5;
+	    }
+	    return zeros;
+	}
+		static String longestCommonPrefix(List<String> a) {
+	    
+	    String prefix = "";
+	    boolean yes = true;
+	    for(String s: a){
+	        if (prefix.equals("")) prefix =s.substring(0,1);
+	        for(int i=0; i < a.size(); i++){
+	            if(!prefix.equals(a.get(i).substring(0,prefix.length()))){
+	                System.out.println(" in 2 "+s.substring(prefix.length()-1,prefix.length()));
+	                prefix = prefix.substring(0,prefix.length()-1);
+	                yes = false;
+	                break;
+	            }
+	        }
+	        if(yes){
+	            System.out.println(" in "+s.substring(prefix.length(),prefix.length()+1));
+	                 prefix += s.substring(prefix.length(),prefix.length()+1);
+	        }else{
+	            break;
+	        }
+	        
+	    }
+	    return prefix;
+	}
+}
