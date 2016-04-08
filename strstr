@@ -1,0 +1,25 @@
+public class Solution {
+	public int strStr(final String haystack, final String needle) {
+	    int ret = 0;
+	    int len = needle.length();
+	    
+	    String found ="";
+	    if (haystack.length()==0 || needle.length()==0)
+	        return -1;
+	    if (needle.length() > haystack.length())
+	        return -1;
+	    for(int j =0; j<haystack.length();j++) {
+	        char h = haystack.charAt(j);
+	        for(int i=0; i < len; i++){
+	            if(h==needle.charAt(i)){
+	                found += h;
+	            }
+	        }
+	        
+	        j++;
+	        //haystack = haystack.substring(j,haystack.length());
+	    }
+	    if (found.equals(needle)) return 1;
+	    else return -1;
+	}
+}
